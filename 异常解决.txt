@@ -1,0 +1,57 @@
+org.gradle.api.internal.tasks.compile.CompilationFailedException:
+Compilation failed; see the compiler error output for details.
+Execution failed for task ':retrofit:compileDebugJavaWithJavac'.
+> Compilation failed; see the compiler error output for details.
+
+解决办法：
+
+
+/*
+
+无法解析配置文件的所有文件：改型：Debug GrimTimeCaseSPATH。
+>未能转换工件的改装。jar（com.squareup.Refught2:Refugation:2.9.0）来匹配属性
+执行DexingNoClasspathTransform失败：C:\Users\HP\。gradle\wrapper\dists\gradle-5.4.1-all\caches\modules-2\files-2.1\com。收拾一下。
+无法转换项目“okhttp”。
+
+解决办法：
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+
+ */
+================================================
+android编译时出现org.gradle.api.tasks.TaskExecutionException:
+Execution failed for task ':app:【compileDebugJavaWithJavac'】错误
+
+解决办法：仔细在build.gradle里面找原因：Build-->ReBuild
+1.新添加的版本依赖过高
+2.或者clean清楚缓存
+
+
+========================================
+如何解决打包问题？
+AndroidS Studio打包APK时出现问题：org.gradle.api.tasks.TaskExecutionException:
+Execution failed for task 【':app:lintVitalRelease'.】
+可以在lint配置当中选择忽略它的警告，例如在app下的build.gradle下android闭包中添加：
+
+lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+就能成功打包了。
+
+=================================
+问题报错：
+Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: C
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
+    api 'com.android.support:support-v4:26.1.0'
+    api 'com.android.support:appcompat-v7:26.1.0'
+
+    api 'com.google.code.gson:gson:2.8.2'
+
+    api 'com.j256.ormlite:ormlite-core:4.48'
+    api 'com.j256.ormlite:ormlite-android:4.48'

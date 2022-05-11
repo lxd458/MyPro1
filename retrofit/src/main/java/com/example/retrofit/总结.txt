@@ -1,0 +1,22 @@
+
+get同步请求： 1.需要创建new Thread(){}子线程
+             2.创建Request.Builder().url("").build();对象
+             3.调用newCall（）方法生成Call对象
+             4.同步方法：call.execute();
+get异步请求：
+            1.不需要创建子线程【省略！！！！】
+            2.创建Request.Builder().url("").build();对象
+            3.调用newCall（）方法生成Call对象
+            4. 异步方法：call.enqueue(new Callback() {自动重写两个方法}
+
+post同步请求：      1.必须创建new Thread(){}子线程
+                  2.创建FormBody.Builder().add("","").build();对象
+                  3.上传对象 new Request.Builder().url("").build();
+                  4.newCall方法生成Call对象
+                  5. 同步格式：call.execute();
+                  */
+post异步请求： 1.不用创建子线程
+              2. 创建FormBody.Builder().add("","").build();对象
+              3. 上传对象 new Request.Builder().url("").build();
+              4. 调用newCall()方法，生成Call对象
+              5. 异步方法： call.enqueue(new Callback() {

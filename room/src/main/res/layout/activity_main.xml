@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context=".MainActivity"
+	android:orientation="vertical"
+	>
+
+	<Button
+		android:text="插入"
+		android:onClick="insert"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"/>
+	<Button
+		android:text="修改"
+		android:onClick="update"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"/>
+	<Button
+		android:text="单个删除"
+		android:onClick="delete"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"/>
+	<Button
+		android:text="全部删除"
+		android:onClick="deleteAll"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"/>
+	<Button
+		android:text="查询所有"
+		android:onClick="select"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"/>
+
+</LinearLayout>

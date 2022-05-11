@@ -1,0 +1,46 @@
+Room:数据库封装
+1.Entity 实体类        数据封装
+2.interface 接口类    抽象方法，增删改查
+3.Database 数据库类    extends RoomDatabase //增加单例模式//关联DAO操作
+4.DBEngine 引擎类  封装整个流程：获取单例的公共方法和关联方法；多个异步线程实现
+5.Activity活动类    调用引擎对象；按钮触发事件， 创建实体类来传入引擎封装的增删改查方法
+ =============================================
+ Util:封装数据
+数据库注意地方：
+1.唯一的对象
+2.多线程
+第一种饿汉式：
+
+    public class Singleton {
+
+    private static Singleton instance = new Singleton();
+
+    private Singleton(){};
+
+    public static Singleton getSingletonInstance() {
+        return instance;
+    }
+}
+    优点：在类加载初始化的时候就创建对象，调用getInstance的时候，没有同步方法，运行时性能较高。
+    缺点：类加载速度慢，占用太多大的资源空间。
+
+
+
+第二种懒汉式：
+
+  public class Singleton {undefined
+
+    private static Singleton instance = null;
+
+    private Singleton(){};
+
+    public static synchronized Singleton getSingletonInstance() {undefined
+        if (instance == null){undefined
+            instance = new Singleton();
+        }
+        return instance;
+    }
+
+}
+    优点：避免了第一种方式的缺点， 同时，可以在多线程下运行安全。
+    缺点：因为他使用了锁，在运行中效率慢。
